@@ -7,15 +7,43 @@
   </head>
 
   <body>
-    <div id="app">{{ message }}</div>
+    <div id="app">{{ msg }}</div>
 
     <script type="text/javascript">
-      var app = new Vue({
+      var vm = new Vue({
         el: "#app",
         data: {
-          message: "Hello Vue!",
+          msg: "Hello Vue!",
         },
+
+        beforeCreate :function() {
+          console.log("beforeCreate")
+        },
+
+        created :function() {
+          console.log("created")
+        },
+        
+        beforeMount :function() {
+          console.log("beforeMount")
+        },
+
+        mounted :function() {
+          console.log("mounted")
+        },
+
+        beforeUpdate :function() {
+          console.log("beforeUpdate")
+        },
+
+        updated :function() {
+          console.log("updated")
+        },
+
       });
+      setTimeout(function() {
+        vm.msg = "change data"
+      }, 3000);
     </script>
   </body>
 </html>
